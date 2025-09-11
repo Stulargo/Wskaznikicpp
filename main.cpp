@@ -1,149 +1,57 @@
 #include <iostream>
-#include <time.h>
-#include <stdlib.h>
- 
+
 using namespace std;
- 
+class Tablica{
+int *tab = new int [10];
+public:
+
+void wypelnienie(){
+
+for(int i=0;i<10;i++){
+        cin >> tab[i];
+    }
+}
+
+void wypisanie(){
+
+for(int i=0;i<10;i++){
+        cout << tab[i] << "";
+    }
+}
+
+private:
+int szukajacaMax(){
+
+    int maks = tab[0];
+    for(int i =0;i<10;i++){
+        if(maks<tab[i]){
+            maks=tab[i];
+        }
+    }
+    return maks;
+
+}
+
+public:
+void sortowanie
+int maks;
+int temp;
+for(int i =0;i<10;i++){
+
+    maks = this->szukajacaMax(i);
+    temp=tab[i];
+    tab[i]=maks;
+    maks=tep;
+}
+};
+
 int main()
 {
-    int a;
-    a = 8;
-    int* w;
- 
-    w = &a;
- 
-    cout << a << endl;
-    cout << w << endl;
-    cout << *w << endl <<endl;
- 
-    *w = 24;
- 
-    cout << a << endl;
-    cout << w << endl;
-    cout << *w << endl << endl;
- 
-    int b = 16;
-    int* w1 = &b;
- 
-    cout << b << endl;
-    cout << w1 << endl;
-    cout << *w1 << endl;
+    cout << "Podaj elementy do tablicy: " << endl;
+    Tablica tab;
+    tab.wypelnienie();
+    tab.wypisanie();
     cout << endl;
- 
-    cout << *w << " + " << *w1 << " = " << *w + *w1 << endl;
- 
-    cout << endl;
- 
-    a = 55;
-    cout << *w << endl;
-    cout << endl;
-    cout << "tablica" << endl << endl;
- 
- 
-    //tablice ze wskaŸnikami
-    int tab[10];
-    int* wt = &tab[0];
-    srand(time(NULL));
-    for(int i = 0; i <10; i++)
-        {
-            *wt = rand()%90 + 10;
-            cout << *wt << endl;
-            wt++;
-        }
- 
-        cout << endl;
- 
-    for(int i = 0; i <10; i++)
-        {
-            cout << tab[i] << endl;
- 
-        }
- 
-        cout << endl;
-            //new alokacja, delete zwolnienie (pamieci)
-        int* tab2 = new int[5];
- 
-        for(int i = 0; i < 5;i++)
-            {
-                tab2[i] = rand()%90 + 10;
-                cout << tab2[i] << endl;
-            }
- 
- 
-        delete[]tab2; //zwolnienie miejsca w pamieci a nie usuniecie
- 
- 
-        cout << endl;
-        cout << endl;
-                for(int i = 0; i < 5;i++)
-            {
-                cout << tab2[i] << endl;
-            }
- 
- 
-            int** tab3 = new int*[6];
- 
-            for(int i = 0; i < 6; i++)
-                {
-                    tab3[i] = new int[3];
-                }
- 
-                cout << endl;
- 
- 
- 
-            for(int i = 0; i < 6; i++)
-                {
-                    for(int j = 0; j < 3;j++)
-                        {
-                            tab3[i][j] = rand()%90+10;
-                            cout << tab3[i][j] << " ";
-                        }
-                        cout << endl;
-                }
- 
- 
-                int mini = tab3[0][0];
-                for(int i = 0; i < 6; i++)
-                {
-                    for(int j = 0; j < 3;j++)
-                        {
-                            if(mini > tab3[i][j])
-                                {
-                                    mini = tab3[i][j];
-                                }
-                        }
-                        cout << endl;
-                }
- 
- 
-                cout << mini << endl;
- 
- 
-                // zwalnianie pamieci
-                for (int i = 0; i < 6; i++)
-                    {
-                        delete[]tab3[i];
-                    }
-                delete[]tab3;
- 
- 
-                                cout << endl;
- 
- 
- 
-            for(int i = 0; i < 6; i++)
-                {
-                    for(int j = 0; j < 3;j++)
-                        {
-                            cout << tab3[i][j] << " ";
-                        }
-                        cout << endl;
-                }
- 
-                cout << endl;
- 
- 
+    //cout << tab.szukajacaMax();
     return 0;
 }
- 
