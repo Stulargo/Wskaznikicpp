@@ -20,26 +20,26 @@ public:
     }
 
 private:
-    int szukajacaMax() {
-        int maks = tab[0];
-        for (int i = 1; i < 10; i++) {
+    int szukajacaMax(int startIndex) {
+        int maks = tab[startIndex];
+        int maxIndex = startIndex;
+        for (int i = startIndex + 1; i < 10; i++) {
             if (maks < tab[i]) {
                 maks = tab[i];
+                maxIndex = i;
             }
         }
-        return maks;
+        return maxIndex;
     }
 
 public:
     void sortowanie() {
-        int maks;
         int temp;
-
-        for (int i = 0; i < 10; i++) {
-            maks = szukajacaMax();
+        for (int i = 0; i < 9; i++) {
+            int maxIndex = szukajacaMax(i);
             temp = tab[i];
-            tab[i] = maks;
-            maks = temp;
+            tab[i] = tab[maxIndex];
+            tab[maxIndex] = temp;
         }
     }
 };
